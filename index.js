@@ -556,7 +556,7 @@ is.prototype = (value) => {
  * @param {*} value value to test
  * @return {Boolean} true if `value` is an event, false otherwise
  */
-is.event = (ev) => is.function(ev.listen) && is.function(ev.broadcast);
+is.event = (value) => is.function(value.listen) && is.function(value.broadcast);
 
 /**
  * Test if `value` is a Map
@@ -591,18 +591,16 @@ is.set = (value) => value instanceof Set;
 is.weakSet = (value) => value instanceof WeakSet;
 
 /**
- * Test if `value` is a WeakSet
+ * Test if `env` is Node
  *
- * @param {*} value value to test
- * @return {Boolean} true if `value` is a WeakSet, false otherwise
+ * @return {Boolean} true if `env` is Node, false otherwise
  */
 is.node = () => typeof window !== 'undefined';
 
 /**
- * Test if `value` is a WeakSet
+ * Test if `env` is Browser
  *
- * @param {*} value value to test
- * @return {Boolean} true if `value` is a WeakSet, false otherwise
+ * @return {Boolean} true if `env` is Browser, false otherwise
  */
 is.browser = () => ![typeof window, typeof document].includes('undefined');
 

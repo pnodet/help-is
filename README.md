@@ -1,14 +1,14 @@
-# pkg-template
-> Small js package I use to help me to create npm packages
+# help-is
+> Small js package I use to test if a value is... (a number, a function...)
 
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
-[![GitHub workflow status](https://img.shields.io/github/workflow/status/pnxdxt/package-template/CI)](https://github.com/pnxdxt/package-template)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/pkg-template)](https://bundlephobia.com/package/pkg-template)
-[![npm downloads](https://img.shields.io/npm/dt/pkg-template)](https://www.npmjs.com/package/pkg-template)
+[![GitHub workflow status](https://img.shields.io/github/workflow/status/pnxdxt/help-is/CI)](https://github.com/pnxdxt/help-is)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/help-is)](https://bundlephobia.com/package/help-is)
+[![npm downloads](https://img.shields.io/npm/dt/help-is)](https://www.npmjs.com/package/help-is)
 
 ## Install
 ```
-$ npm install pkg-template
+$ npm install help-is
 ```
 ## Import
 
@@ -18,10 +18,7 @@ Use `import foo from 'foo'` instead of `const foo = require('foo')` to import th
 
 ```js
 // Load entire build
-import * as pkgName from 'pkg-template';
-
-// Load by method
-import {main} from 'pkg-template';
+import is from 'help-is';
 ```
 If the package is used in an async context, you could use [`await import(…)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports) from CommonJS instead of `require(…)`.
 
@@ -33,11 +30,10 @@ Read more here: [sindresorhus/esm-package](https://gist.github.com/sindresorhus/
 ## Usage
 
 ```js
-
-main([1,2,3], (element) => typeof element === 'string');
+is.string(['1', '2', '3']);
 //=> false
 
-main(['1', '2', '3'], (element) => typeof element === 'string');
+is.string('Hello');
 //=> true
 ```
 

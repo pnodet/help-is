@@ -39,95 +39,95 @@ is.string('Hello');
 
 ## API
 
-`is.a()` alias `is.type()`
+`is.a(value, type)` alias `is.type(value, type)` : Test if `value` is a type of `type`.
 
-`is.defined()`
+`is.defined()` : Test if `value` is defined.
 
-`is.empty()`
+`is.empty()` : Test if `value` is empty.
 
-`is.hosted()`
+`is.hosted(value, host)` : Test if `value` is hosted by `host`.
 
-`is.instance()` alias `is.instanceof()`
+`is.instance(value, constructor)` alias `is.instanceof(value, constructor)`
 
-`is.nil()` alias `is.null()`
+`is.nil()` alias `is.null()` : Test if `value` is null.
 
-`is.undef()` alias `is.undefined()`
+`is.undef()` alias `is.undefined()` : Test if `value` is undefined.
 
-`is.args()` alias `is.arguments()`
+`is.args()` alias `is.arguments()` : Test if `value` is an arguments object.
 
-`is.args.empty()`
+`is.args.empty()` : Test if `value` is an empty arguments object.
 
-`is.array()`
+`is.array()` : Test if 'value' is an array.
 
-`is.array.empty()`
+`is.array.empty()` : Test if `value` is an empty array.
 
-`is.arraylike()`
+`is.arraylike()` : Test if `value` is an arraylike object.
 
-`is.bool()` alias `is.boolean()`
+`is.bool()` alias `is.boolean()` : Test if `value` is a boolean.
 
-`is.false()`
+`is.false()` : Test if `value` is false.
 
-`is.true()`
+`is.true()` : Test if `value` is true.
 
-`is.date()`
+`is.date()` : Test if `value` is a date.
 
-`is.date.valid()`
+`is.date.valid()` : Test if `value` is a valid date.
 
-`is.element()`
+`is.element()` : Test if `value` is an html element.
 
-`is.error()`
+`is.error()` : Test if `value` is an error object.
 
-`is.fn()` alias `is.function()`
+`is.fn()` alias `is.function()` : Test if `value` is a function.
 
-`is.thenable()`
+`is.thenable()` : Test if `value` is a function and `then` can be called.
 
-`is.promise()`
+`is.promise()` : Test if `value` is a promise.
 
-`is.num()` alias `is.number()`
+`is.num()` alias `is.number()` : Test if `value` is a number.
 
-`is.infinite()`
+`is.infinite()` : Test if `value` is positive or negative infinity.
 
-`is.decimal()`
+`is.decimal()` : Test if `value` is a decimal number.
 
-`is.int()` alias `is.integer()`
+`is.int()` alias `is.integer()` : Test if `value` is an integer.
 
-`is.safeInteger()`
+`is.safeInteger()` : Test if `value` is a 'safe' integer.
 
-`is.bigInt()`
+`is.bigInt()` : Test if `value` is a BigInt.
 
-`is.float()`
+`is.float()` : Test if `value` is a float.
 
-`is.nan()`
+`is.nan()` : Test if `value` is not a number.
 
-`is.object()`
+`is.object()` : Test if `value` is an object.
 
-`is.primitive()`
+`is.primitive()` : Test if `value` is a primitive.
 
-`is.hash()`
+`is.hash()` : Test if `value` is a hash - a plain object literal.
 
-`is.regexp()`
+`is.regexp()` : Test if `value` is a regular expression.
 
-`is.string()`
+`is.string()` : Test if `value` is a string.
 
-`is.base64()`
+`is.base64()` : Test if `value` is a valid base64 encoded string.
 
-`is.hex()`
+`is.hex()` : Test if `value` is a valid hex encoded string.
 
-`is.symbol()`
+`is.symbol()` : Test if `value` is a Symbol.
 
-`is.event()`
+`is.event()` : Test if `value` is a prototype.
 
-`is.map()`
+`is.map()` : Test if `value` is a Map.
 
-`is.weakMap()`
+`is.weakMap()` : Test if `value` is a WeakMap.
 
-`is.set()`
+`is.set()` : Test if `value` is a Set.
 
-`is.weakSet()`
+`is.weakSet()` : Test if `value` is a WeakSet.
 
-`is.node()`
+`is.node()` : Test if `environment` is Node.
 
-`is.browser()`
+`is.browser()` : Test if `environment` is Browser.
 ## License
 
 MIT © [Paul Nodet](https://pnodet.com)

@@ -262,10 +262,10 @@ is.set = (value) => value instanceof Set;
 /** Test if `value` is a WeakSet. */
 is.weakSet = (value) => value instanceof WeakSet;
 
-/** Test if `env` is Node. */
+/** Test if `environment` is Node. */
 is.node = () => typeof window !== 'undefined';
 
-/** Test if `env` is Browser. */
+/** Test if `environment` is Browser. */
 is.browser = () => ![typeof window, typeof document].includes('undefined');
 
 export default is;

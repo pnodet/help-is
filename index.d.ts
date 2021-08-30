@@ -383,15 +383,15 @@ declare namespace is {
 	 */
 	export function weakSet(value: any): boolean;
 	/**
-	 * Test if `env` is Node.
+	 * Test if `environment` is Node.
 	 *
-	 * @return {Boolean} true if `env` is Node, false otherwise
+	 * @return {Boolean} true if `environment` is Node, false otherwise
 	 */
 	export function node(): boolean;
 	/**
-	 * Test if `env` is Browser.
+	 * Test if `environment` is Browser.
 	 *
-	 * @return {Boolean} true if `env` is Browser, false otherwise
+	 * @return {Boolean} true if `environment` is Browser, false otherwise
 	 */
 	export function browser(): boolean;
 }

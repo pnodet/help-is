@@ -55,9 +55,11 @@ is.string('Hello');
 
 `is.args()` alias `is.arguments()`
 
-`is.empty()`
+`is.args.empty()`
 
 `is.array()`
+
+`is.array.empty()`
 
 `is.arraylike()`
 

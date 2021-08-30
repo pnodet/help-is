@@ -1,9 +1,6 @@
 export default is;
 declare namespace is {
 	/**
-	 * Test general.
-	 */
-	/**
 	 * Test if `value` is a type of `type`.
 	 *
 	 * @param {*} value value to test
@@ -86,9 +83,6 @@ declare namespace is {
 	 */
 	export function undefined(value: any): boolean;
 	/**
-	 * Test arguments.
-	 */
-	/**
 	 * Test if `value` is an arguments object.
 	 *
 	 * @param {*} value value to test
@@ -113,9 +107,6 @@ declare namespace is {
 	function _arguments(value: any): boolean;
 	export {_arguments as arguments};
 	/**
-	 * Test array.
-	 */
-	/**
 	 * Test if 'value' is an array.
 	 *
 	 * @param {*} value value to test
@@ -138,9 +129,6 @@ declare namespace is {
 	 * @return {Boolean} true if `value` is an arguments object, false otherwise
 	 */
 	export function arraylike(value: any): boolean;
-	/**
-	 * Test boolean.
-	 */
 	/**
 	 * Test if `value` is a boolean.
 	 *
@@ -172,9 +160,6 @@ declare namespace is {
 	function _true(value: any): boolean;
 	export {_true as true};
 	/**
-	 * Test date.
-	 */
-	/**
 	 * Test if `value` is a date.
 	 *
 	 * @param {*} value value to test
@@ -191,9 +176,6 @@ declare namespace is {
 		function valid(value: any): boolean;
 	}
 	/**
-	 * Test element.
-	 */
-	/**
 	 * Test if `value` is an html element.
 	 *
 	 * @param {*} value value to test
@@ -201,18 +183,12 @@ declare namespace is {
 	 */
 	export function element(value: any): boolean;
 	/**
-	 * Test error.
-	 */
-	/**
 	 * Test if `value` is an error object.
 	 *
 	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is an error object, false otherwise
 	 */
 	export function error(value: any): boolean;
-	/**
-	 * Test function.
-	 */
 	/**
 	 * Test if `value` is a function.
 	 *
@@ -229,7 +205,7 @@ declare namespace is {
 	function _function(value: any): boolean;
 	export {_function as function};
 	/**
-	 * Test if `value` is a function and `then` can be called
+	 * Test if `value` is a function and `then` can be called.
 	 *
 	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a thenable function, false otherwise
@@ -242,9 +218,6 @@ declare namespace is {
 	 * @return {Boolean} true if `value` is a promise, false otherwise
 	 */
 	export function promise(value: any): boolean;
-	/**
-	 * Test number.
-	 */
 	/**
 	 * Test if `value` is a number.
 	 *
@@ -275,7 +248,7 @@ declare namespace is {
 	 */
 	export function decimal(value: any): boolean;
 	/**
-	 * Test if `value` is an integer.Number.
+	 * Test if `value` is an integer.
 	 *
 	 * @param value to test
 	 * @return {Boolean} true if `value` is an integer, false otherwise
@@ -298,7 +271,7 @@ declare namespace is {
 	 */
 	export function safeInteger(value: any): boolean;
 	/**
-	 * Test if `value` is a BigInt
+	 * Test if `value` is a BigInt.
 	 *
 	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a BigInt, false otherwise
@@ -318,9 +291,6 @@ declare namespace is {
 	 * @return {Boolean} true if `value` is not a number, false otherwise
 	 */
 	export function nan(value: any): boolean;
-	/**
-	 * Test object.
-	 */
 	/**
 	 * Test if `value` is an object.
 	 *
@@ -343,18 +313,12 @@ declare namespace is {
 	 */
 	export function hash(value: any): boolean;
 	/**
-	 * Test regexp.
-	 */
-	/**
 	 * Test if `value` is a regular expression.
 	 *
 	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a regexp, false otherwise
 	 */
 	export function regexp(value: any): boolean;
-	/**
-	 * Test string.
-	 */
 	/**
 	 * Test if `value` is a string.
 	 *
@@ -363,18 +327,12 @@ declare namespace is {
 	 */
 	export function string(value: any): boolean;
 	/**
-	 * Test base64 string.
-	 */
-	/**
 	 * Test if `value` is a valid base64 encoded string.
 	 *
 	 * @param {*} value value to test
 	 * @return {Boolean} true if 'value' is a base64 encoded string, false otherwise
 	 */
 	export function base64(value: any): boolean;
-	/**
-	 * Test hex string.
-	 */
 	/**
 	 * Test if `value` is a valid hex encoded string.
 	 *
@@ -383,7 +341,7 @@ declare namespace is {
 	 */
 	export function hex(value: any): boolean;
 	/**
-	 * Test if `value` is a Symbol
+	 * Test if `value` is a Symbol.
 	 *
 	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a Symbol, false otherwise
@@ -397,41 +355,41 @@ declare namespace is {
 	 */
 	export function event(value: any): boolean;
 	/**
-	 * Test if `value` is a Map
+	 * Test if `value` is a Map.
 	 *
 	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a Map, false otherwise
 	 */
 	export function map(value: any): boolean;
 	/**
-	 * Test if `value` is a WeakMap
+	 * Test if `value` is a WeakMap.
 	 *
 	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a WeakMap, false otherwise
 	 */
 	export function weakMap(value: any): boolean;
 	/**
-	 * Test if `value` is a Set
+	 * Test if `value` is a Set.
 	 *
 	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a Set, false otherwise
 	 */
 	export function set(value: any): boolean;
 	/**
-	 * Test if `value` is a WeakSet
+	 * Test if `value` is a WeakSet.
 	 *
 	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a WeakSet, false otherwise
 	 */
 	export function weakSet(value: any): boolean;
 	/**
-	 * Test if `env` is Node
+	 * Test if `env` is Node.
 	 *
 	 * @return {Boolean} true if `env` is Node, false otherwise
 	 */
 	export function node(): boolean;
 	/**
-	 * Test if `env` is Browser
+	 * Test if `env` is Browser.
 	 *
 	 * @return {Boolean} true if `env` is Browser, false otherwise
 	 */

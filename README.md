@@ -30,13 +30,102 @@ Read more here: [sindresorhus/esm-package](https://gist.github.com/sindresorhus/
 ## Usage
 
 ```js
-is.string(['1', '2', '3']);
+is.string([1, 2, 3]);
 //=> false
 
 is.string('Hello');
 //=> true
 ```
 
+## API
+
+`is.a()` alias `is.type()`
+
+`is.defined()`
+
+`is.empty()`
+
+`is.hosted()`
+
+`is.instance()` alias `is.instanceof()`
+
+`is.nil()` alias `is.null()`
+
+`is.undef()` alias `is.undefined()`
+
+`is.args()` alias `is.arguments()`
+
+`is.empty()`
+
+`is.array()`
+
+`is.arraylike()`
+
+`is.bool()` alias `is.boolean()`
+
+`is.false()`
+
+`is.true()`
+
+`is.date()`
+
+`is.date.valid()`
+
+`is.element()`
+
+`is.error()`
+
+`is.fn()` alias `is.function()`
+
+`is.thenable()`
+
+`is.promise()`
+
+`is.num()` alias `is.number()`
+
+`is.infinite()`
+
+`is.decimal()`
+
+`is.int()` alias `is.integer()`
+
+`is.safeInteger()`
+
+`is.bigInt()`
+
+`is.float()`
+
+`is.nan()`
+
+`is.object()`
+
+`is.primitive()`
+
+`is.hash()`
+
+`is.regexp()`
+
+`is.string()`
+
+`is.base64()`
+
+`is.hex()`
+
+`is.symbol()`
+
+`is.event()`
+
+`is.map()`
+
+`is.weakMap()`
+
+`is.set()`
+
+`is.weakSet()`
+
+`is.node()`
+
+`is.browser()`
 ## License
 
 MIT © [Paul Nodet](https://pnodet.com)

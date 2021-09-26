@@ -12,10 +12,6 @@ const NON_HOST_TYPES = {
 	undefined: 1,
 };
 
-const base64Regex =
-	/^([A-Za-z\d+/]{4})*([A-Za-z\d+/]{4}|[A-Za-z\d+/]{3}=|[A-Za-z\d+/]{2}==)$/;
-const hexRegex = /^[A-Fa-f\d]+$/;
-
 const is = {};
 
 /** Test if `value` is a type of `type`. */
@@ -25,10 +21,10 @@ is.a = (value, type) => typeof value === type;
 is.type = (value, type) => typeof value === type;
 
 /** Test if `value` is defined. */
-is.defined = (value) => typeof value !== 'undefined';
+is.defined = value => typeof value !== 'undefined';
 
 /** Test if `value` is empty. */
-is.empty = (value) => {
+is.empty = value => {
 	const type = toString_.call(value);
 	let key;
 
@@ -66,19 +62,19 @@ is.instance = (value, constructor) => value instanceof constructor;
 is.instanceof = (value, constructor) => value instanceof constructor;
 
 /** Test if `value` is null. */
-is.nil = (value) => value === null;
+is.nil = value => value === null;
 
 /** Test if `value` is null. */
-is.null = (value) => value === null;
+is.null = value => value === null;
 
 /** Test if `value` is undefined. */
-is.undef = (value) => typeof value === 'undefined';
+is.undef = value => typeof value === 'undefined';
 
 /** Test if `value` is undefined. */
-is.undefined = (value) => typeof value === 'undefined';
+is.undefined = value => typeof value === 'undefined';
 
 /** Test if `value` is an arguments object. */
-is.args = (value) => {
+is.args = value => {
 	const isStandardArguments = toString_.call(value) === '[object Arguments]';
 	const isOldArguments =
 		!is.array(value) &&
@@ -89,7 +85,7 @@ is.args = (value) => {
 };
 
 /** Test if `value` is an arguments object. */
-is.arguments = (value) => {
+is.arguments = value => {
 	const isStandardArguments = toString_.call(value) === '[object Arguments]';
 	const isOldArguments =
 		!is.array(value) &&
@@ -100,17 +96,17 @@ is.arguments = (value) => {
 };
 
 /** Test if `value` is an empty arguments object. */
-is.args.empty = (value) => is.args(value) && value.length === 0;
+is.args.empty = value => is.args(value) && value.length === 0;
 
 /** Test if 'value' is an array. */
-is.array = (value) =>
+is.array = value =>
 	Array.isArray(value) || toString_.call(value) === '[object Array]';
 
 /** Test if `value` is an empty array. */
-is.array.empty = (value) => is.array(value) && value.length === 0;
+is.array.empty = value => is.array(value) && value.length === 0;
 
 /** Test if `value` is an arraylike object. */
-is.arraylike = (value) =>
+is.arraylike = value =>
 	Boolean(value) &&
 	!is.bool(value) &&
 	owns.call(value, 'length') &&
@@ -119,87 +115,86 @@ is.arraylike = (value) =>
 	value.length >= 0;
 
 /** Test if `value` is a boolean. */
-is.bool = (value) => toString_.call(value) === '[object Boolean]';
+is.bool = value => toString_.call(value) === '[object Boolean]';
 
 /** Test if `value` is a boolean. */
-is.boolean = (value) => toString_.call(value) === '[object Boolean]';
+is.boolean = value => toString_.call(value) === '[object Boolean]';
 
 /** Test if `value` is false. */
-is.false = (value) => is.bool(value) && Boolean(Number(value)) === false;
+is.false = value => is.bool(value) && Boolean(Number(value)) === false;
 
 /** Test if `value` is true. */
-is.true = (value) => is.bool(value) && Boolean(Number(value)) === true;
+is.true = value => is.bool(value) && Boolean(Number(value)) === true;
 
 /** Test if `value` is a date. */
-is.date = (value) => toString_.call(value) === '[object Date]';
+is.date = value => toString_.call(value) === '[object Date]';
 
 /** Test if `value` is a valid date. */
-is.date.valid = (value) => is.date(value) && !Number.isNaN(Number(value));
+is.date.valid = value => is.date(value) && !Number.isNaN(Number(value));
 
 /** Test if `value` is an html element. */
-is.element = (value) =>
+is.element = value =>
 	value !== undefined &&
 	typeof HTMLElement !== 'undefined' &&
 	value instanceof HTMLElement &&
 	value.nodeType === 1;
 
 /** Test if `value` is an error object. */
-is.error = (value) => toString_.call(value) === '[object Error]';
+is.error = value => toString_.call(value) === '[object Error]';
 
 /** Test if `value` is a function. */
-is.fn = (value) => typeof value === 'function';
+is.fn = value => typeof value === 'function';
 
 /** Test if `value` is a function. */
-is.function = (value) => typeof value === 'function';
+is.function = value => typeof value === 'function';
 
 /** Test if `value` is a function and `then` can be called. */
-is.thenable = (value) => value && is.function(value.then);
+is.thenable = value => value && is.function(value.then);
 
 /** Test if `value` is a promise. */
-is.promise = (value) => is.thenable(value) && is.function(value.catch);
+is.promise = value => is.thenable(value) && is.function(value.catch);
 
 /** Test if `value` is a number. */
-is.num = (value) => toString_.call(value) === '[object Number]';
+is.num = value => toString_.call(value) === '[object Number]';
 
 /** Test if `value` is a number. */
-is.number = (value) => toString_.call(value) === '[object Number]';
+is.number = value => toString_.call(value) === '[object Number]';
 
 /** Test if `value` is positive or negative infinity. */
-is.infinite = (value) =>
+is.infinite = value =>
 	value === Number.POSITIVE_INFINITY || value === Number.NEGATIVE_INFINITY;
 
 /** Test if `value` is a decimal number. */
-is.decimal = (value) =>
+is.decimal = value =>
 	is.num(value) &&
 	!is.infinite(value) &&
 	!Number.isNaN(value) &&
 	value % 1 !== 0;
 
 /** Test if `value` is an integer. */
-is.int = (value) => is.num(value) && !Number.isNaN(value) && value % 1 === 0;
+is.int = value => is.num(value) && !Number.isNaN(value) && value % 1 === 0;
 
 /** Test if `value` is an integer. */
-is.integer = (value) =>
-	is.num(value) && !Number.isNaN(value) && value % 1 === 0;
+is.integer = value => is.num(value) && !Number.isNaN(value) && value % 1 === 0;
 
 /** Test if `value` is a 'safe' integer. */
-is.safeInteger = (value) => Number.isSafeInteger(value) && !Number.isNaN(value);
+is.safeInteger = value => Number.isSafeInteger(value) && !Number.isNaN(value);
 
 /** Test if `value` is a BigInt. */
-is.bigInt = (value) => typeof value === 'bigint';
+is.bigInt = value => typeof value === 'bigint';
 
 /** Test if `value` is a float. */
-is.float = (value) =>
+is.float = value =>
 	is.number(value) && !Number.isNaN(value) && Math.floor(value) !== value;
 
 /** Test if `value` is not a number. */
-is.nan = (value) => !is.number(value) || Number.isNaN(value);
+is.nan = value => !is.number(value) || Number.isNaN(value);
 
 /** Test if `value` is an object. */
-is.object = (value) => toString_.call(value) === '[object Object]';
+is.object = value => toString_.call(value) === '[object Object]';
 
 /** Test if `value` is a primitive. */
-is.primitive = (value) => {
+is.primitive = value => {
 	if (!value) {
 		return true;
 	}
@@ -217,50 +212,54 @@ is.primitive = (value) => {
 };
 
 /** Test if `value` is a hash - a plain object literal. */
-is.hash = (value) =>
+is.hash = value =>
 	is.object(value) &&
 	value.constructor === Object &&
 	!value.nodeType &&
 	!value.setInterval;
 
 /** Test if `value` is a regular expression. */
-is.regexp = (value) => toString_.call(value) === '[object RegExp]';
+is.regexp = value => toString_.call(value) === '[object RegExp]';
 
 /** Test if `value` is a string. */
-is.string = (value) => toString_.call(value) === '[object String]';
+is.string = value => toString_.call(value) === '[object String]';
 
 /** Test if `value` is a valid base64 encoded string. */
-is.base64 = (value) =>
-	is.string(value) && (value.length === 0 || base64Regex.test(value));
+is.base64 = value =>
+	is.string(value) &&
+	(value.length === 0 ||
+		/^([A-Za-z\d+/]{4})*([A-Za-z\d+/]{4}|[A-Za-z\d+/]{3}=|[A-Za-z\d+/]{2}==)$/.test(
+			value,
+		));
 
 /** Test if `value` is a valid hex encoded string. */
-is.hex = (value) =>
-	is.string(value) && (value.length === 0 || hexRegex.test(value));
+is.hex = value =>
+	is.string(value) && (value.length === 0 || /^[A-Fa-f\d]+$/.test(value));
 
 /** Test if `value` is a Symbol. */
-is.symbol = (value) => typeof value === 'symbol';
+is.symbol = value => typeof value === 'symbol';
 
 /** Test if `value` is a prototype. */
-is.prototype = (value) => {
+is.prototype = value => {
 	const Ctor = value && value.constructor;
 	const proto = (typeof Ctor === 'function' && Ctor.prototype) || objectProto;
 	return value === proto;
 };
 
 /** Test if `value` is an event. */
-is.event = (value) => is.function(value.listen) && is.function(value.broadcast);
+is.event = value => is.function(value.listen) && is.function(value.broadcast);
 
 /** Test if `value` is a Map. */
-is.map = (value) => value instanceof Map;
+is.map = value => value instanceof Map;
 
 /** Test if `value` is a WeakMap. */
-is.weakMap = (value) => value instanceof WeakMap;
+is.weakMap = value => value instanceof WeakMap;
 
 /** Test if `value` is a Set. */
-is.set = (value) => value instanceof Set;
+is.set = value => value instanceof Set;
 
 /** Test if `value` is a WeakSet. */
-is.weakSet = (value) => value instanceof WeakSet;
+is.weakSet = value => value instanceof WeakSet;
 
 /** Test if `environment` is Node. */
 is.node = () => typeof window !== 'undefined';
